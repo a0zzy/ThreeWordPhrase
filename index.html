@@ -7,6 +7,12 @@
     <title>Three Word Phrase</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
 </head>
 
 <style>
@@ -112,6 +118,10 @@
         color: #fff;
         border-bottom-color: #fff;
     }
+
+    .nav-link {
+        cursor: pointer;
+    }
 </style>
 
 <body class="d-flex h-100 text-center text-bg-dark" data-bs-theme="dark">
@@ -122,7 +132,7 @@
                 <h3 class="float-md-start mb-0">TWP</h3>
                 <nav class="nav nav-masthead justify-content-center float-md-end">
                     <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link fw-bold py-1 px-0" href="#">Why</a>
+                    <a class="nav-link fw-bold py-1 px-0" id="aboutButton">About</a>
                     <a class="nav-link fw-bold py-1 px-0" href="https://github.com/CleverCarpet">Developer</a>
                 </nav>
             </div>
@@ -131,12 +141,14 @@
         <main class="px-3">
             <h1>Three Word Phrase</h1>
             <p class="lead">Need a random phrase? Look no futher than the TWP Generator.</p>
+            <div id="errorbox"></div>
             <p class="lead">
             <div class="mb-3">
                 <label for="wordBox" class="form-label">Your Random Phrase</label>
                 <div class="input-group mb-3" id="wordbox" aria-describedby="emailHelp">
                     <input type="email" class="form-control" id="wordOutput" aria-describedby="copyButton" readonly>
-                    <button class="btn btn-outline-secondary" type="button" id="copyButton">Copy</button>
+                    <button class="btn btn-secondary" type="button" id="copyButton" data-bs-toggle="copyToolTip"
+                        data-bs-placement="top" data-bs-title="Copied">Copy</button>
                 </div>
                 <div id="emailHelp" class="form-text">I don't suggest using this as a password.</div>
             </div>
@@ -144,23 +156,60 @@
             </p>
         </main>
 
+        <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="aboutModalLabel">About</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Why?</h4>
+                        <p>Have you ever been stumped when trying to come up with an idea for a username or title for something? Well the TWP Generator fixes that by generating a random phrase for you to use. Also, because I can.</p>
+                        <h4>How?</h4>
+                        <p>TWP Generator was made using HTML, CSS, Vannila Javascript, and <a href="https://nodejs.org">Node.JS</a> The backend is hosted using a <a href="https://repl.it">Repl.it</a> server at the moment and the frontend is hosted on
+                        the <a href="https://carbondev.cf">Carbon Dev</a> Domain using <a href="https://netlify.com">Netfliy</a>.</p>
+                        <h4>Who?</h4>
+                        <p>This generator was made by <strong><a href="https://github.com/CleverCarpet">CleverCarpet</a></strong> himself.</p>
+                        <h4>Credits</h4>
+                        <a href="https://github.com/sindresorhus/random-word">Random Word Library</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script>
+            const copyToolTip = new bootstrap.Tooltip(document.getElementById('copyButton'), {'trigger': 'manual focus'})
+            const aboutModal = new bootstrap.Modal(document.getElementById('aboutModal'))
+
             async function fetchWord() {
-                let get = await fetch('https://RandomWord.clevercarpet.repl.co')
+                let get = await fetch('https://RandomWord.clevercarpet.repl.co').catch(error => {
+                    document.getElementById('errorBox').innerHTML = `<div class="alert alert-danger" role="alert"> Whoops! There was an issue fetching words from the dictonary. </div>`
+                });
                 let res = await get.json()
                 return res
             }
 
             document.getElementById('generateButton').onclick = async function () {
                 document.getElementById('generateButton').classList.add('placeholder')
+                document.getElementById('generateButton').disabled = true
                 let wordsjson = await fetchWord()
                 let words = wordsjson.word1 + ' ' + wordsjson.word2 + ' ' + wordsjson.word3
+                document.getElementById('generateButton').disabled = false
                 document.getElementById('generateButton').classList.remove('placeholder')
                 document.getElementById('wordOutput').value = words
             }
 
             document.getElementById('copyButton').onclick = function () {
                 navigator.clipboard.writeText(document.getElementById('wordOutput').value)
+                copyToolTip.show()
+            }
+
+            document.getElementById('aboutButton').onclick = function () {
+                aboutModal.show()
             }
         </script>
 
