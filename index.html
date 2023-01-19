@@ -123,7 +123,7 @@
                 <nav class="nav nav-masthead justify-content-center float-md-end">
                     <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
                     <a class="nav-link fw-bold py-1 px-0" href="#">Why</a>
-                    <a class="nav-link fw-bold py-1 px-0" href="#">Developer</a>
+                    <a class="nav-link fw-bold py-1 px-0" href="https://github.com/CleverCarpet">Developer</a>
                 </nav>
             </div>
         </header>
@@ -152,8 +152,10 @@
             }
 
             document.getElementById('generateButton').onclick = async function () {
+                document.getElementById('generateButton').classList.add('placeholder')
                 let wordsjson = await fetchWord()
                 let words = wordsjson.word1 + ' ' + wordsjson.word2 + ' ' + wordsjson.word3
+                document.getElementById('generateButton').classList.remove('placeholder')
                 document.getElementById('wordOutput').value = words
             }
 
