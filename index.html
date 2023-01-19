@@ -190,8 +190,8 @@
             const aboutModal = new bootstrap.Modal(document.getElementById('aboutModal'))
 
             async function fetchWord() {
-                let get = await fetch('https://RandomWord.clevercarpet.repl.co').catch(error => {
-                    document.getElementById('errorBox').innerHTML = `<div class="alert alert-danger" role="alert"> Whoops! There was an issue fetching words from the dictonary. </div>`
+                let get = await fetch('https://RandomWord.clevercarpet.repl.co', { timeout: 5000 }).catch(error => {
+                    document.getElementById('errorBox').innerHTML = `<div class="alert alert-danger" role="alert"> There seems to be an issue fetching words from the dictionary. Try to <button type="button" class="btn btn-link" onclick="window.location.reload()">Refresh</button> </div>`
                 });
                 let res = await get.json()
                 return res
