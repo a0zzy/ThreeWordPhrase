@@ -206,7 +206,7 @@
                 document.getElementById('generateButton').classList.add('placeholder')
                 document.getElementById('generateButton').disabled = true
                 let wordsjson = await fetchWord()
-                let words = wordsjson.word1 + ' ' + wordsjson.word2 + ' ' + wordsjson.word3
+                let words = wordsjson.join(' ')
                 document.getElementById('generateButton').disabled = false
                 document.getElementById('generateButton').classList.remove('placeholder')
                 document.getElementById('wordOutput').value = words
