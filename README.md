@@ -12,4 +12,8 @@
   </p>
 </p>
 
+<p align="center">
 Thats it. Just go to <a href="https:/threewordphrase.carbondev.cf">TWP Generator</a>.
+<br>
+Want to learn about how it works? Review the code and take a look at the server program that's hosted on <a href="https://replit.com/@CleverCarpet/ThreeRandomWords">Repl.it</a>
+</p>
