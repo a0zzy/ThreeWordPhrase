@@ -205,9 +205,11 @@
             document.getElementById('generateButton').onclick = async function () {
                 document.getElementById('generateButton').classList.add('placeholder')
                 document.getElementById('generateButton').disabled = true
+                document.getElementById('generateButton').innerText = "Fetching Phrase"
                 let wordsjson = await fetchWord()
                 let words = wordsjson.join(' ')
                 document.getElementById('generateButton').disabled = false
+                document.getElementById('generateButton').innerText = "Generate Phrase"
                 document.getElementById('generateButton').classList.remove('placeholder')
                 document.getElementById('wordOutput').value = words
             }
