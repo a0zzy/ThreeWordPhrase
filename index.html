@@ -159,7 +159,7 @@
                     <button class="btn btn-secondary" type="button" id="copyButton" data-bs-toggle="copyToolTip"
                         data-bs-placement="top" data-bs-title="Copied">Copy</button>
                 </div>
-                <div id="emailHelp" class="form-text">I don't suggest using this as a password.</div>
+                <div id="generatorHelp" class="form-text" style="display: none;">This is taking longer than expected. Try refreshing the page.</div>
             </div>
             <button type="submit" class="btn btn-primary" id="generateButton">Generate Phrase</button>
             </p>
@@ -194,6 +194,8 @@
             const copyToolTip = new bootstrap.Tooltip(document.getElementById('copyButton'), {'trigger': 'manual focus'})
             const aboutModal = new bootstrap.Modal(document.getElementById('aboutModal'))
 
+            let isFetching = false
+
             async function fetchWord() {
                 let get = await fetch('https://RandomWord.clevercarpet.repl.co', { timeout: 5000 }).catch(error => {
                     document.getElementById('errorBox').innerHTML = `<div class="alert alert-danger" role="alert"> There seems to be an issue fetching words from the dictionary. Try to <button type="button" class="btn btn-link" onclick="window.location.reload()">Refresh</button> </div>`
@@ -202,7 +204,19 @@
                 return res
             }
 
+            function testConnection () {
+                if (isFetching == true) {
+                    document.getElementById('generatorHelp').style.display = 'block'
+                }
+            }
+
+            function runConnection () {
+                setTimeout(testConnection, 5000)
+            }
+
             document.getElementById('generateButton').onclick = async function () {
+                isFetching = true
+                runConnection()
                 document.getElementById('generateButton').classList.add('placeholder')
                 document.getElementById('generateButton').disabled = true
                 document.getElementById('generateButton').innerText = "Fetching Phrase"
@@ -212,6 +226,7 @@
                 document.getElementById('generateButton').innerText = "Generate Phrase"
                 document.getElementById('generateButton').classList.remove('placeholder')
                 document.getElementById('wordOutput').value = words
+                isFetching = false
             }
 
             document.getElementById('copyButton').onclick = function () {
