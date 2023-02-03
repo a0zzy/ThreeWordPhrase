@@ -180,27 +180,27 @@
                     <div class="modal-body">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="exactlyPr">Exactly</span>
-                            <input type="number" class="form-control" placeholder="How Many Strings to Generate" value="3">
+                            <input type="number" class="form-control numparam param" placeholder="How Many Strings to Generate" value="3">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="minlengthPr">Min Length</span>
-                            <input type="number" class="form-control" placeholder="Minimum Length of Each Word" value="2">
+                            <input type="number" class="form-control numparam param" placeholder="Minimum Length of Each Word" value="2">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="maxlengthPr">Max Length</span>
-                            <input type="number" class="form-control" placeholder="Maximum Length of Each Word" value="10">
+                            <input type="number" class="form-control numparam param" placeholder="Maximum Length of Each Word" value="10">
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="wordsPr">Words</span>
-                            <input type="number" class="form-control" placeholder="How Many Words Per Each String" value="1">
+                            <input type="number" class="form-control numparam param" placeholder="How Many Words Per Each String" value="1">
                         </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="wordsPr">Words</span>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected value="1">Beginning</option>
-                                <option value="2">Complete</option>
-                                <option value="3">None</option>
+                        <div class="form-floating">
+                            <select class="form-select" id="formatPr" aria-label="Floating label select example selectparam param">
+                                <option selected value="beginning">Beginning</option>
+                                <option value="complete">Complete</option>
+                                <option value="none">None</option>
                             </select>
+                            <label for="floatingSelect">Text Formatting</label>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -239,6 +239,18 @@
             const copyToolTip = new bootstrap.Tooltip(document.getElementById('copyButton'), {'trigger': 'manual focus'})
             const aboutModal = new bootstrap.Modal(document.getElementById('aboutModal'))
             const optionsModal = new bootstrap.Modal(document.getElementById('optionsModal'))
+
+            let exactlyPr = new bootstrap.Modal(document.getElementById('exactlyPr'))
+            let wordsPr = new bootstrap.Modal(document.getElementById('wordsPr'))
+            let minlengthPr = new bootstrap.Modal(document.getElementById('minlengthPr'))
+            let maxlengthPr = new bootstrap.Modal(document.getElementById('maxlengthr'))
+            let formatPr = new bootstrap.Modal(document.getElementById('formatPr'))
+
+            document.getElementsByClassName('param').addEventListener('input', function () {
+                [this.id] = this.value
+                console.log(this.value)
+                console.log(this.id)
+            })
 
             let isFetching = false
             let options = {}
