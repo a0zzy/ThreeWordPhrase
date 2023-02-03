@@ -161,7 +161,7 @@
                 </div>
                 <div id="generatorHelp" class="form-text" style="display: none;">This is taking longer than expected. Try refreshing the page.</div>
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" style="justify-content: center;">
                 <button type="submit" class="btn btn-primary" id="generateButton">Generate Phrase</button>
                 <button id="optionsButton" type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" aria-expanded="false">
                     <span class="visually-hidden">Toggle Options</span>
@@ -174,25 +174,15 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="aboutModalLabel">About</h1>
+                        <h1 class="modal-title fs-5" id="aboutModalLabel">Generation Options</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h4>Why?</h4>
-                        <p>Have you ever been stumped when trying to come up with an idea for a username or title for something?
-                            Well the TWP Generator fixes that by generating a random phrase for you to use. Also, because I can.
-                        </p>
-                        <h4>How?</h4>
-                        <p>TWP Generator was made using HTML, CSS, Vannila Javascript, and <a
-                                href="https://nodejs.org">Node.JS</a> The backend is hosted using a <a
-                                href="https://repl.it">Repl.it</a> server at the moment and the frontend is hosted on
-                            the <a href="https://carbondev.cf">Carbon Dev</a> Domain using <a
-                                href="https://netlify.com">Netfliy</a>.</p>
-                        <h4>Who?</h4>
-                        <p>This generator was made by <strong><a
-                                    href="https://github.com/CleverCarpet">CleverCarpet</a></strong> himself.</p>
-                        <h4>Credits</h4>
-                        <a href="https://github.com/sindresorhus/random-word">Random Word Library</a>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Words Per Generation</span>
+                            <input type="number" class="form-control" placeholder="Username" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
