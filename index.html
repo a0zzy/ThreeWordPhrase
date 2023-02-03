@@ -181,27 +181,27 @@
                     </div>
                     <div class="modal-body">
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="exactlyPr">Exactly</span>
-                            <input type="number" class="form-control numparam param"
+                            <span class="input-group-text">Exactly</span>
+                            <input type="number" class="form-control numparam param" id="exactly"
                                 placeholder="How Many Strings to Generate" value="3">
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="minlengthPr">Min Length</span>
-                            <input type="number" class="form-control numparam param"
+                            <span class="input-group-text">Min Length</span>
+                            <input type="number" class="form-control numparam param" id="minlength"
                                 placeholder="Minimum Length of Each Word" value="2">
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="maxlengthPr">Max Length</span>
-                            <input type="number" class="form-control numparam param"
+                            <span class="input-group-text" >Max Length</span>
+                            <input type="number" class="form-control numparam param" id="maxlength"
                                 placeholder="Maximum Length of Each Word" value="10">
                         </div>
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="wordsPr">Words</span>
-                            <input type="number" class="form-control numparam param"
+                            <span class="input-group-text">Words</span>
+                            <input type="number" class="form-control numparam param" id="words"
                                 placeholder="How Many Words Per Each String" value="1">
                         </div>
                         <div class="form-floating">
-                            <select class="form-select selectparam param" id="formatPr"
+                            <select class="form-select selectparam param" id="format"
                                 aria-label="Floating label select example ">
                                 <option selected value="beginning">Beginning</option>
                                 <option value="complete">Complete</option>
@@ -253,32 +253,32 @@
             const aboutModal = new bootstrap.Modal(document.getElementById('aboutModal'))
             const optionsModal = new bootstrap.Modal(document.getElementById('optionsModal'))
 
-            let exactlyPr = 3
-            let wordsPr = 1
-            let minlengthPr = 2
-            let maxlengthPr = 20
-            let formatPr = 'Beginning'
+            let exactly = 3
+            let words = 1
+            let minlength = 2
+            let maxlength = 20
+            let format = 'Beginning'
             let paramelements = document.getElementsByClassName('param')
             let paramselelements = document.getElementsByClassName('selectparam')
 
             for (var i = 0; i < paramelements.length; i++) {
                 paramelements[i].addEventListener('input', function (e) {
-                    if (e.id = 'exactlyPr') {
-                        exactlyPr = document.getElementById(e.id).value
-                    } else if (e.id = 'wordsPr') {
-                        wordsPr = document.getElementById(e.id).value
-                    } else if (e.id = 'maxlengthPr') {
-                        maxlengthPr = document.getElementById(e.id).value
-                    } else if (e.id = 'minlengthPr') {
-                        minlengthPr = document.getElementById(e.id).value
+                    if (e.id = 'exactly') {
+                        exactly = document.getElementById(e.id).value
+                    } else if (e.id = 'words') {
+                        words = document.getElementById(e.id).value
+                    } else if (e.id = 'maxlength') {
+                        maxlength = document.getElementById(e.id).value
+                    } else if (e.id = 'minlength') {
+                        minlength = document.getElementById(e.id).value
                     }
                 })
             }
 
             for (var i = 0; i < paramselelements.length; i++) {
                 paramselelements[i].addEventListener('change', function (e) {
-                    if (e.id = 'formatPr') {
-                        formatPr = document.getElementById(e.id).value
+                    if (e.id = 'format') {
+                        format = document.getElementById(e.id).value
                     }
                 })
             }
