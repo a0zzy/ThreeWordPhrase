@@ -1,19 +1,39 @@
-<p align="center">
-  <a href="https:/threewordphrase.carbondev.cf">
-    <img src="https://github.com/CleverCarpet/ThreeWordPhrase/blob/main/logo.png?raw=true" alt="Logo" width=72 height=72>
-  </a>
 
-  <strong><h3 align="center">Three Word Phrase</h3></strong>
+## Generator API Reference
 
-  <p align="center">
-    Need a short three word phrase for a keyword, username, etc?
-    <br>
-    Look no further than the Three Word Phrase Generator.
-  </p>
-</p>
+```http
+  https://threerandomwords.carboncdn.cf
+```
 
-<p align="center">
-Thats it. Just go to <a href="https:/threewordphrase.carbondev.cf">TWP Generator</a>.
-<br>
-Want to learn about how it works? Review the code and take a look at the server program that's hosted on <a href="https://replit.com/@CleverCarpet/ThreeRandomWords">Repl.it</a>
-</p>
+#### Get all items
+
+```http
+  GET /api/generate
+```
+
+| Parameter | Type     | Default     | Description                |
+| :-------- | :------- | :------- | :------------------------- |
+| `exactly` | `number` | `3` | How Many Words to Generate |
+| `maxlength` | `string` | `none` | Max Length of Each Word |
+| `wordsperstring` | `number` | `1` | How Many Words Per Each String |
+| `uppercase` | `string` | `beginning` | How to Format The Words  |
+
+ - **Formating Options**
+
+    ```
+    none (No Formatting)
+    ```
+
+    ```
+    beginning (First Letter of Word Uppercase)
+    ```
+
+    ```
+    complete (Full Word Uppercase)
+    ```
+
+
+#### generate(exactly, maxlength, wordsperstring, uppercase)
+
+Generates a phrase with random words, using custom parameters
+
