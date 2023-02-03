@@ -26,8 +26,9 @@ This is a very basic tool. Don't expect to much.
 
 | Parameter | Type     | Default     | Description                |
 | :-------- | :------- | :------- | :------------------------- |
-| `exactly` | `number` | `3` | How Many Words to Generate |
-| `maxlength` | `string` | `none` | Max Length of Each Word |
+| `exactly` | `number` | `3` | How Many Strings to Generate |
+| `minlength` | `string` | `none` | Minimum Length of Each Word |
+| `maxlength` | `string` | `none` | Maximum Length of Each Word |
 | `words` | `number` | `1` | How Many Words Per Each String |
 | `format` | `string` | `beginning` | How to Format The Words  |
 
@@ -43,6 +44,23 @@ This is a very basic tool. Don't expect to much.
 
     ```
     complete (Full Word Uppercase)
+    ```
+ - **Word Length Options**
+
+    ```
+    Maximum Strings Per Generation: 10
+    ```
+
+    ```
+    Smallest Minimum: 2
+    ```
+
+    ```
+    Largest Maximum: 20
+    ```
+    
+    ```
+    Maximum Words Per String: 5
     ```
 
 
