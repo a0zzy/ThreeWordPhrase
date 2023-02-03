@@ -28,8 +28,8 @@ This is a very basic tool. Don't expect to much.
 | :-------- | :------- | :------- | :------------------------- |
 | `exactly` | `number` | `3` | How Many Words to Generate |
 | `maxlength` | `string` | `none` | Max Length of Each Word |
-| `wordsperstring` | `number` | `1` | How Many Words Per Each String |
-| `uppercase` | `string` | `beginning` | How to Format The Words  |
+| `words` | `number` | `1` | How Many Words Per Each String |
+| `format` | `string` | `beginning` | How to Format The Words  |
 
  - **Formating Options**
 
