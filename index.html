@@ -263,13 +263,23 @@
 
             for (var i = 0; i < paramelements.length; i++) {
                 paramelements[i].addEventListener('input', function (e) {
-                    [this.id] = this.value
+                    if (this.id = 'exactlyPr') {
+                        exactlyPr = this.value
+                    } else if (this.id = 'wordsPr') {
+                        wordsPr = this.value
+                    } else if (this.id = 'maxlengthPr') {
+                        maxlengthPr = this.value
+                    } else if (this.id = 'minlengthPr') {
+                        minlengthPr = this.value
+                    }
                 })
             }
 
             for (var i = 0; i < paramselelements.length; i++) {
                 paramselelements[i].addEventListener('change', function (e) {
-                    [this.id] = this.value
+                    if (this.id = 'formatPr') {
+                        formatPr = this.value
+                    }
                 })
             }
 
