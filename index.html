@@ -179,9 +179,28 @@
                     </div>
                     <div class="modal-body">
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Words Per Generation</span>
-                            <input type="number" class="form-control" placeholder="Username" aria-label="Username"
-                                aria-describedby="basic-addon1">
+                            <span class="input-group-text" id="exactlyPr">Exactly</span>
+                            <input type="number" class="form-control" placeholder="How Many Strings to Generate" value="3">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="minlengthPr">Min Length</span>
+                            <input type="number" class="form-control" placeholder="Minimum Length of Each Word" value="2">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="maxlengthPr">Max Length</span>
+                            <input type="number" class="form-control" placeholder="Maximum Length of Each Word" value="10">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="wordsPr">Words</span>
+                            <input type="number" class="form-control" placeholder="How Many Words Per Each String" value="1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="wordsPr">Words</span>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected value="1">Beginning</option>
+                                <option value="2">Complete</option>
+                                <option value="3">None</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
