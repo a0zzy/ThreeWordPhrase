@@ -64,7 +64,7 @@ This is a very basic tool. Don't expect to much.
     ```
 
 
-#### generate(exactly, maxlength, wordsperstring, uppercase)
+#### generate(exactly, minlength, maxlength, words, format)
 
 Generates a phrase with random words, using custom parameters
 
