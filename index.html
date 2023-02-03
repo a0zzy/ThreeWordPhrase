@@ -161,9 +161,45 @@
                 </div>
                 <div id="generatorHelp" class="form-text" style="display: none;">This is taking longer than expected. Try refreshing the page.</div>
             </div>
-            <button type="submit" class="btn btn-primary" id="generateButton">Generate Phrase</button>
+            <div class="input-group mb-3">
+                <button type="submit" class="btn btn-primary" id="generateButton">Generate Phrase</button>
+                <button id="optionsButton" type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Options</span>
+                </button>
+            </div>
             </p>
         </main>
+
+        <div class="modal fade" id="optionsModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="aboutModalLabel">About</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Why?</h4>
+                        <p>Have you ever been stumped when trying to come up with an idea for a username or title for something?
+                            Well the TWP Generator fixes that by generating a random phrase for you to use. Also, because I can.
+                        </p>
+                        <h4>How?</h4>
+                        <p>TWP Generator was made using HTML, CSS, Vannila Javascript, and <a
+                                href="https://nodejs.org">Node.JS</a> The backend is hosted using a <a
+                                href="https://repl.it">Repl.it</a> server at the moment and the frontend is hosted on
+                            the <a href="https://carbondev.cf">Carbon Dev</a> Domain using <a
+                                href="https://netlify.com">Netfliy</a>.</p>
+                        <h4>Who?</h4>
+                        <p>This generator was made by <strong><a
+                                    href="https://github.com/CleverCarpet">CleverCarpet</a></strong> himself.</p>
+                        <h4>Credits</h4>
+                        <a href="https://github.com/sindresorhus/random-word">Random Word Library</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -193,8 +229,10 @@
         <script>
             const copyToolTip = new bootstrap.Tooltip(document.getElementById('copyButton'), {'trigger': 'manual focus'})
             const aboutModal = new bootstrap.Modal(document.getElementById('aboutModal'))
+            const optionsModal = new bootstrap.Modal(document.getElementById('optionsModal'))
 
             let isFetching = false
+            let options = {}
 
             async function fetchWord() {
                 let get = await fetch('https://RandomWord.clevercarpet.repl.co', { timeout: 5000 }).catch(error => {
@@ -236,6 +274,10 @@
 
             document.getElementById('aboutButton').onclick = function () {
                 aboutModal.show()
+            }
+
+            document.getElementById('optionsButton').onclick = function () {
+                optionsModal.show()
             }
         </script>
 
