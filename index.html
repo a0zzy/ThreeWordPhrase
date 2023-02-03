@@ -264,13 +264,13 @@
             for (var i = 0; i < paramelements.length; i++) {
                 paramelements[i].addEventListener('input', function (e) {
                     if (e.id = 'exactlyPr') {
-                        exactlyPr = e.value
+                        exactlyPr = document.getElementById(e.id).value
                     } else if (e.id = 'wordsPr') {
-                        wordsPr = e.value
+                        wordsPr = document.getElementById(e.id).value
                     } else if (e.id = 'maxlengthPr') {
-                        maxlengthPr = e.value
+                        maxlengthPr = document.getElementById(e.id).value
                     } else if (e.id = 'minlengthPr') {
-                        minlengthPr = e.value
+                        minlengthPr = document.getElementById(e.id).value
                     }
                 })
             }
@@ -278,7 +278,7 @@
             for (var i = 0; i < paramselelements.length; i++) {
                 paramselelements[i].addEventListener('change', function (e) {
                     if (e.id = 'formatPr') {
-                        formatPr = e.value
+                        formatPr = document.getElementById(e.id).value
                     }
                 })
             }
