@@ -240,11 +240,11 @@
             const aboutModal = new bootstrap.Modal(document.getElementById('aboutModal'))
             const optionsModal = new bootstrap.Modal(document.getElementById('optionsModal'))
 
-            let exactlyPr = new bootstrap.Modal(document.getElementById('exactlyPr'))
-            let wordsPr = new bootstrap.Modal(document.getElementById('wordsPr'))
-            let minlengthPr = new bootstrap.Modal(document.getElementById('minlengthPr'))
-            let maxlengthPr = new bootstrap.Modal(document.getElementById('maxlengthr'))
-            let formatPr = new bootstrap.Modal(document.getElementById('formatPr'))
+            let exactlyPr = document.getElementById('exactlyPr');
+            let wordsPr = document.getElementById('wordsPr');
+            let minlengthPr = document.getElementById('minlengthPr');
+            let maxlengthPr = document.getElementById('maxlengthr');
+            let formatPr = document.getElementById('formatPr');
 
             document.getElementsByClassName('param').addEventListener('input', function () {
                 [this.id] = this.value
