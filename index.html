@@ -263,26 +263,22 @@
 
             for (var i = 0; i < paramelements.length; i++) {
                 paramelements[i].addEventListener('input', function (e) {
-                    console.log(this.id)
-                    console.log(e.id)
-                    if (this.id = 'exactlyPr') {
-                        exactlyPr = this.value
-                    } else if (this.id = 'wordsPr') {
-                        wordsPr = this.value
-                    } else if (this.id = 'maxlengthPr') {
-                        maxlengthPr = this.value
-                    } else if (this.id = 'minlengthPr') {
-                        minlengthPr = this.value
+                    if (e.id = 'exactlyPr') {
+                        exactlyPr = e.value
+                    } else if (e.id = 'wordsPr') {
+                        wordsPr = e.value
+                    } else if (e.id = 'maxlengthPr') {
+                        maxlengthPr = e.value
+                    } else if (e.id = 'minlengthPr') {
+                        minlengthPr = e.value
                     }
                 })
             }
 
             for (var i = 0; i < paramselelements.length; i++) {
-                console.log(this.id)
-                console.log(e.id)
                 paramselelements[i].addEventListener('change', function (e) {
-                    if (this.id = 'formatPr') {
-                        formatPr = this.value
+                    if (e.id = 'formatPr') {
+                        formatPr = e.value
                     }
                 })
             }
