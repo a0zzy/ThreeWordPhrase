@@ -181,7 +181,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="input-group mb-3">
-                            <span class="input-group-text">Exactly</span>
+                            <span class="input-group-text">Words</span>
                             <input type="number" class="form-control numparam param" id="exactly"
                                 placeholder="How Many Strings to Generate" value="3">
                         </div>
@@ -194,11 +194,6 @@
                             <span class="input-group-text" >Max Length</span>
                             <input type="number" class="form-control numparam param" id="maxlength"
                                 placeholder="Maximum Length of Each Word" value="10">
-                        </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Words</span>
-                            <input type="number" class="form-control numparam param" id="words"
-                                placeholder="How Many Words Per Each String" value="1">
                         </div>
                         <div class="form-floating">
                             <select class="form-select selectparam param" id="format"
@@ -254,7 +249,6 @@
             const optionsModal = new bootstrap.Modal(document.getElementById('optionsModal'))
 
             let exactly = 3
-            let words = 1
             let minlength = 2
             let maxlength = 20
             let format = 'Beginning'
@@ -265,9 +259,7 @@
                 paramelements[i].addEventListener('input', function (e) {
                     if (e.id = 'exactly') {
                         exactly = document.getElementById(e.id).value
-                    } else if (e.id = 'words') {
-                        words = document.getElementById(e.id).value
-                    } else if (e.id = 'maxlength') {
+                    }else if (e.id = 'maxlength') {
                         maxlength = document.getElementById(e.id).value
                     } else if (e.id = 'minlength') {
                         minlength = document.getElementById(e.id).value
@@ -287,7 +279,7 @@
             let options = {}
 
             async function fetchWord() {
-                let genparams = 'exactly=' + exactly + '&words=' + words + '&minlength=' + minlength + '&maxlength=' + maxlength + '&format=' + format
+                let genparams = 'exactly=' + exactly + '&minlength=' + minlength + '&maxlength=' + maxlength + '&format=' + format
                 let get = await fetch('https://RandomWord.clevercarpet.repl.co/api/generate?' + genparams, { timeout: 5000 }).catch(error => {
                     document.getElementById('errorBox').innerHTML = `<div class="alert alert-danger" role="alert"> There seems to be an issue fetching words from the dictionary. Try to <button type="button" class="btn btn-link" onclick="window.location.reload()">Refresh</button> </div>`
                 });
