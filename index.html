@@ -287,7 +287,7 @@
             let options = {}
 
             async function fetchWord() {
-                let genparams = 'exactlyPr=' + exactlyPr + '&wordsPr=' + wordsPr + '&minlengthPr=' + minlengthPr + '&maxlengthPr=' + maxlengthPr + '&formatPr=' + formatPr
+                let genparams = 'exactly=' + exactly + '&words=' + words + '&minlength=' + minlength + '&maxlength=' + maxlength + '&format=' + format
                 let get = await fetch('https://RandomWord.clevercarpet.repl.co/api/generate?' + genparams, { timeout: 5000 }).catch(error => {
                     document.getElementById('errorBox').innerHTML = `<div class="alert alert-danger" role="alert"> There seems to be an issue fetching words from the dictionary. Try to <button type="button" class="btn btn-link" onclick="window.location.reload()">Refresh</button> </div>`
                 });
