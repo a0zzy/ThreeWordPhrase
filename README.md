@@ -84,3 +84,5 @@ Generates a phrase with random words, using custom parameters
 
 For support, submit a contact request on my [Portfolio](https://cleverportfolio.carbondev.cf).
 
+**EXTRA LISCENSING INFORMATION** You are not allowed without my permission to resell, re-distribute or sell my project or code!
+
